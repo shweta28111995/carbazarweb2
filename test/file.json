@@ -1,0 +1,18 @@
+ obj: [
+    { 
+      model: "Maruti",
+      registration_no: "12345" 
+    },
+    { 
+      model: "Audi",
+      registration_no: "123456" 
+    },
+    { 
+      model: "Tata",
+      registration_no: "123457" 
+    },
+    { 
+      model: "Kwid",
+      registration_no: "123457" 
+    }
+  ]

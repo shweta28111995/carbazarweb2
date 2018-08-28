@@ -1,0 +1,89 @@
+<div class="container" *ngIf="CarId">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/home">Home</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/carlist">Car List</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a routerLink="/carlist">{{CarId.manufacturer}}</a>
+    </li>
+  </ol>
+  <h1>{{CarId.model}}</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="position: absolute;">
+        <img src="../src/assets/images/{{CarId.photopath}}" height="400" width="553">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="../src/assets/images/{{CarId.photopath}}" class="border border-secondary" height="60" width="80">
+          </div>
+          <div class="col-md-2">
+            <img src="../src/assets/images/{{CarId.photopath}}" class="border border-secondary" height="60" width="80">
+          </div>
+          <div class="col-md-2">
+            <img src="../src/assets/images/{{CarId.photopath}}" class="border border-secondary" height="60" width="80">
+          </div>
+          <div class="col-md-2">
+            <img src="../src/assets/images/{{CarId.photopath}}" class="border border-secondary" height="60" width="80">
+          </div>
+          <div class="col-md-2">
+            <img src="../src/assets/images/{{CarId.photopath}}" class="border border-secondary" height="60" width="80">
+          </div>
+          <div class="col-md-2">
+            <img src="../src/assets/images/{{CarId.photopath}}" class="border border-secondary" height="60" width="70">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">Registration Number</p>
+        </div>
+        <div class="col-md-6">
+          <p class="lead">{{CarId.registration_no}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">Model</p>
+        </div>
+        <div class="col-md-6">
+          <p class="lead">{{CarId.model}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">Speedometer</p>
+        </div>
+        <div class="col-md-6">
+          <p class="lead">{{CarId.speedometer}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">Manufacturer</p>
+        </div>
+        <div class="col-md-6">
+          <p class="lead">{{CarId.manufacturer}}</p>
+        </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <p class="lead">Owner</p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead">{{CarId.ownername}}</p>
+          </div>
+          </div>
+     <div *ngIf="CarId.carownerid != CarId.customerid">
+      <button type="button" *ngIf="log" (click)="sendcardetail()" class="btn btn-primary btn-lg" style="float: right;">Ask for Price</button>
+    </div>
+    </div>
+  
+  </div>
+</div>
+

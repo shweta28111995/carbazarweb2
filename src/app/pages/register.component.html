@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="col-md-9 col-md-offset-1">
+        <h2>Register</h2>
+        <form name="form" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit()">
+            <div class="form-group" [class.has-error]="FirstName.invalid && FirstName.touched">
+                <label for="FirstName">First Name</label>
+                <input type="text" required class="form-control" pattern="[a-zA-Z ]*" 
+                name="FirstName" [(ngModel)]="user.FirstName" #FirstName="ngModel"
+                />
+                <span class="help-block " style="color: red;" *ngIf="FirstName.invalid && 
+                FirstName.touched">
+                    First Name is required
+                </span>
+                <span class="help-block" style="color: red;" *ngIf="FirstName.errors?.pattern">
+                    First Name is invalid
+                </span>
+            </div>
+            <div class="form-group" [class.has-error]="LastName.invalid && LastName.touched">
+                <label for="LastName">Last Name</label>
+                <input type="text" class="form-control" v name="LastName" [(ngModel)]="user.LastName" 
+                #LastName="ngModel" required />
+                <span class="help-block " style="color: red;" *ngIf="LastName.invalid && 
+                LastName.touched">
+                    Last Name is required
+                </span>
+                <span class="help-block" style="color: red;" *ngIf="LastName.errors?.pattern">
+                    Last Name is invalid
+                </span>
+            </div>
+            <div class="form-group" [class.has-error]="Email.invalid && Email.touched">
+                <label for="Email">Email</label>
+                <input type="text" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" Email class="form-control" name="Email" [(ngModel)]="user.Email"
+                    #Email="ngModel" required />
+                <span class="help-block " style="color: red;" *ngIf="Email.invalid && Email.touched">
+                    Email is required
+                </span>
+                <span class="help-block" style="color: red;" *ngIf="Email.errors?.pattern">
+                    Email is invalid
+                </span>
+            </div>
+            <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup" appConfirmEqualValidator [class.has-error]="passwordGroup.errors?.notEqual
+    && !confirmPassword.errors?.required">
+                <div class="form-group" [class.has-error]="Password.touched && Password.invalid">
+                    <label for="Password" class="control-label">Password</label>
+                    <input id="Password" required type="password" minlength="8" class="form-control" (input)="confirmPassword.control.updateValueAndValidity()"
+                        name="Password" [(ngModel)]="user.Password" #Password="ngModel">
+                    <span class="help-block" *ngIf="Password.touched && Password.errors?.required" style="color: red;">
+                        Password is required
+                    </span>
+                    <span class="help-block" *ngIf="Password.hasError('minlength')" style="color: red;">
+                        Password should contain 8 characters
+                    </span>
+                </div>
+
+                <div class="form-group" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+                    <label for="confirmPassword" class="control-label">Confirm Password</label>
+                    <input name="confirmPassword" required id="confirmPassword" type="password" class="form-control" [(ngModel)]="user.confirmPassword"
+                        #confirmPassword="ngModel">
+                    <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.required">
+                        <div class="alert alert-danger">Confirm Password is required</div>
+                    </span>
+                    <span class="help-block" *ngIf="confirmPassword.touched && passwordGroup.errors?.notEqual &&
+          !confirmPassword.errors?.required" style="color: red;">
+                        Password and Confirm Password doesn't match
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" [disabled]="userRegistrationForm.invalid">Register</button>
+                <a routerLink="/forgotpassword" style="margin-left: 20px">Forgot Password</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="container">
+  <form name="form" #carRegistrationForm="ngForm" (ngSubmit)="saveCar()" enctype="multipart/form-data">
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-header">
+        <h3 class="card-title">Add Car</h3>
+      </div>
+      <div class="card -body">
+        <div class="form-group" [class.has-error]="Registration_no.invalid && Registration_no.touched">
+          <label for="Registration_no">Registration_no</label>
+          <input type="text" required class="form-control" name="Registration_no" [(ngModel)]="car.Registration_no" #Registration_no="ngModel"
+          />
+          <span class="help-block " style="color: red;" *ngIf="Registration_no.invalid && Registration_no.touched">
+            Registration_no is required
+          </span>
+      </div>
+
+        <div class="form-group" [class.has-error]="Manufacturer.invalid && Manufacturer.touched" [class.has-success]="Manufacturer.valid">
+          <label for="Manufacturer" class="control-label">Manufacturer</label>
+          <input id="Manufacturer" required type="text" class="form-control" name="Manufacturer" [(ngModel)]="car.Manufacturer" #Manufacturer="ngModel">
+          <span class="help-block" style="color: red;" *ngIf="Manufacturer.invalid && Manufacturer.touched">
+              Manufacturer is required
+          </span>
+        </div>
+
+
+
+        <div class="form-group" [class.has-error]="Model.invalid">
+          <label for="Model" class="control-label">Model</label>
+          <input id="Model" type="text" class="form-control" [(ngModel)]="car.Model" #Model="ngModel" name="Model">
+          <span class="help-block" style="color: red;" *ngIf="Model.errors?.required">
+              Model is required
+          </span>
+          <span class="help-block" style="color: red;" *ngIf="Model.errors?.pattern && Model.touched">
+              Model is invalid
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="Speedometer.invalid">
+          <label for="Speedometer" class="control-label">Speedometer</label>
+          <input id="Speedometer"  type="text" class="form-control" [(ngModel)]="car.Speedometer" #Speedometer="ngModel" name="Speedometer">
+          <span class="help-block" *ngIf="Speedometer.errors?.required">
+              Speedometer is required
+          </span>
+          <span class="help-block" style="color: red;" *ngIf="Speedometer.errors?.pattern && Speedometer.touched">
+             Speedometer is invalid
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-error]="Cost.invalid">
+            <label for="Cost" class="control-label">Cost</label>
+            <input id="Cost"  type="text" class="form-control" [(ngModel)]="car.Cost" #Cost="ngModel" name="Cost">
+            <span class="help-block" *ngIf="Cost.errors?.required">
+                Cost is required
+            </span>
+            <span class="help-block" style="color: red;" *ngIf="Cost.errors?.pattern && Cost.touched">
+               Cost is invalid
+            </span>
+          </div>
+<!-- 
+        <div class="form-group" [class.has-error]="isActive.invalid && isActive.touched">
+          <div class="form-control">
+            <label class="checkbox-inline control-label">
+              <input type="checkbox" disabled required name="isActive" > Is Active
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" [class.has-error]="isDelete.invalid && isDelete.touched">
+          <div class="form-control">
+            <label class="checkbox-inline control-label">
+              <input type="checkbox" disabled required name="isDelete"> Is Delete
+            </label>
+          </div>
+        </div> -->
+
+
+        <div class="form-group">
+<label for="Photopath" >Photo Path</label>
+<div class="form-group" >
+<!-- <input id="Photopath" name="Photopath" type="file" value="upload"
+[(ngModel)]="car.Photopath" accept=".jpg"> -->
+
+<input type="file" accept="image/*" (change)="handleFileInput($event.target.files)" />
+
+</div>
+</div>
+
+      
+      </div>
+
+
+      <div class="card-footer">
+        <button class="btn btn-primary" type="submit" [disabled]="carRegistrationForm.invalid">Save</button>
+      </div>
+
+    </div>
+  </form>
+</div>

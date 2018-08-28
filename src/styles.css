@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~ngx-toastr/toastr.css';
+
+ 
+
+
+a{
+    font-size: 20px;
+    padding-left: 20px;
+    color: black;
+}
+
+.Heading{
+    text-align: center;
+}
+
+.alert-dismissible
+{
+    text-align: center;
+}
+
