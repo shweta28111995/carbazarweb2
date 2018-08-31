@@ -29,7 +29,7 @@
     "core-js": "^2.5.4",
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
-    "express": "^4.16.3",
+    "express": "*",
     "jquery": "^3.3.1",
     "ngx-spinner": "^6.1.2",
     "ngx-toastr": "^8.10.1",
