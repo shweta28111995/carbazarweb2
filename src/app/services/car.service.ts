@@ -15,7 +15,9 @@ export class CarService {
 
 
   
-  private _url='http://localhost:3000/addcar'
+  //private _url='http://localhost:3000/addcar'
+  
+  private _url='https://carbazarapinode.herokuapp.com/'
 
   constructor(private _http: HttpClient) { }
 
@@ -56,19 +58,19 @@ let userid = localStorage.getItem('_id')
 
 console.log(formData);
 debugger;
-  return this._http.post(this._url, formData);
+  return this._http.post(this._url +'addcar', formData);
 }
 
 getCars(): Observable<any> {
   debugger;
-  return this._http.get('http://localhost:3000/cars/getcars/get', httpOptions).pipe(
+  return this._http.get(this._url+'cars/getcars/get', httpOptions).pipe(
     map(this.extractData),
     catchError(this.handleError));
 }
 
 getCarById(id : string) {
   debugger;
-  return this._http.get('http://localhost:3000/cars/getByID/'+ id).pipe(
+  return this._http.get(this._url+'cars/getByID/'+ id).pipe(
     map(this.extractData),
     catchError(this.handleError));
 }
@@ -76,7 +78,7 @@ getCarById(id : string) {
 // call node Api for display particular car detail on frontend in angular
 sendEmailforprice() {
   debugger;
-  return this._http.get(`http://localhost:3000/users/sendemail`, httpOptions).pipe(
+  return this._http.get(this._url+`users/sendemail`, httpOptions).pipe(
     map(this.extractData),
     catchError(this.handleError));     
 }
@@ -84,7 +86,7 @@ sendEmailforprice() {
 
 updateCar(registration_no: string){
   debugger;
-  return this._http.put('http://localhost:3000/cars/updatecar/' + registration_no, registration_no).pipe(
+  return this._http.put(this._url+'cars/updatecar/' + registration_no, registration_no).pipe(
     map(this.extractData),
     catchError(this.handleError));     
 }
@@ -92,13 +94,13 @@ updateCar(registration_no: string){
 // Send car detail for user by email
 sendcardetail(cardetail) {
   debugger;
-  return this._http.post<any>('http://localhost:3000/users/sendcardetail', cardetail, httpOptions);
+  return this._http.post<any>(this._url+'users/sendcardetail', cardetail, httpOptions);
   }
 
   // Car Accept by user
 carAccept(reg_id: string) {
   debugger;
-  return this._http.put(`http://localhost:3000/cars/updateCarStatus/` + reg_id, httpOptions).pipe(
+  return this._http.put(this._url+`cars/updateCarStatus/` + reg_id, httpOptions).pipe(
   map(this.extractData),
   catchError(this.handleError));
   }
@@ -106,7 +108,7 @@ carAccept(reg_id: string) {
   // send email to admin for ask a price of car
 sendRejectmail(body) {
   debugger;
-  return this._http.post(`http://localhost:3000/users/rejectcarrequest/`, body).pipe(
+  return this._http.post(this._url+`users/rejectcarrequest/`, body).pipe(
   map(this.extractData),
   catchError(this.handleError));
   }
@@ -115,7 +117,7 @@ sendRejectmail(body) {
 
   carImage(regid: string) {
     debugger;
-    return this._http.put(`http://localhost:3000/cars/upload/` + regid, httpOptions).pipe(
+    return this._http.put(this._url+`cars/upload/` + regid, httpOptions).pipe(
     map(this.extractData),
     catchError(this.handleError));
     }
