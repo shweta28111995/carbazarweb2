@@ -55,9 +55,7 @@ export class RegisterComponent implements OnInit {
       }
     }, err => {
       debugger;
-      this.toastr.error('everything is broken', 'Major Error', {
-        timeOut: 3000
-      });
+      console.log(err);
     });
 }
 }
