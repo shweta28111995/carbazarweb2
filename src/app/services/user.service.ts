@@ -13,10 +13,11 @@ const httpOptions = {
 })
 export class UserService {
 
-  private _url='http://localhost:3000/users/register';
-  private _loginurl='http://localhost:3000/users/login';
-  
-  private serviceUrl = "http://localhost:3000/users/getUsers"
+  //private _url='http://localhost:3000/users/register';
+  //private _loginurl='http://localhost:3000/users/login';
+    private _url='https://carbazarapinode.herokuapp.com/'
+
+  //private serviceUrl = "http://localhost:3000/users/getUsers"
   constructor(private _http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
@@ -47,16 +48,16 @@ registerUser(user : User){
       lastname: user.LastName
     }
     debugger;
-    return this._http.post(this._url, userdata);
+    return this._http.post(this._url+'users/register', userdata);
   }
 
   loginUser(user){
-    return this._http.post<any>(this._loginurl,user)
+    return this._http.post<any>(this._url+'users/login',user)
   }
 
   getUser(): Observable<any>{
     debugger;
-    return this._http.get(this.serviceUrl, httpOptions).pipe(
+    return this._http.get(this._url +'users/getUsers', httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
@@ -64,34 +65,34 @@ registerUser(user : User){
   // Get car's by user
 getCarUserList(userid) {
 
-  return this._http.get<any>('http://localhost:3000/cars/getcarbyuser/' + userid, userid);
+  return this._http.get<any>(this._url+'cars/getcarbyuser/' + userid, userid);
 }
 
 getUserByEmail() {
-  return this._http.get(`http://localhost:3000/users/resetemail`, httpOptions).pipe(
+  return this._http.get(this._url+`users/resetemail`, httpOptions).pipe(
     map(this.extractData),
     catchError(this.handleError));     
 }
 
   updatepassword(password) {
     debugger;
-    return this._http.put(' http://localhost:3000/users/updateuserpassword/' + password, httpOptions).pipe(
+    return this._http.put(this._url+'users/updateuserpassword/' + password, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
   verfyUserEmail(email) {
     debugger;
-    return this._http.put<any>(' http://localhost:3000/users/changeuserstatus/' + email, httpOptions);
+    return this._http.put<any>(this._url+'users/changeuserstatus/' + email, httpOptions);
     }
     // ChangePassword service
 
 changePassword(email, registerUserData) {
   debugger;
-  return this._http.post<any>('http://localhost:3000/users/changepassword/' + email, registerUserData);
+  return this._http.post<any>(this._url+'users/changepassword/' + email, registerUserData);
   }
   deleteCarbyuser(r) {
     debugger;
-    return this._http.put<any>('http://localhost:3000/cars/deletecar/' + r, httpOptions);
+    return this._http.put<any>(this._url+'cars/deletecar/' + r, httpOptions);
     }
 }
