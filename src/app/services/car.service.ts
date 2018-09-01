@@ -7,7 +7,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
 .set('Access-Control-Allow-Origin', '*')
-.set('Access-Control-Allow-Methods', 'GET');
+.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE')
+.set('Access-Control-Allow-Headers' 'Accept,Accept-Language,Content-Language,Content-Type')
+.set('Access-Control-Expose-Headers', 'Content-Length,Content-Range');
 const httpOptions = {
 headers: headers
 };
