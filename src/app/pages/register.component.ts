@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
         return false;
       }
       else{
-        this.toastr.error("Email already exists");
+        this.toastr.error(res.message);
       }
     }, err => {
       debugger;
