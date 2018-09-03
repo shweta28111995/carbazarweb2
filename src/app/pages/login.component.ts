@@ -16,16 +16,14 @@ export class LoginComponent implements OnInit {
   constructor(private spinner: NgxSpinnerService,private userService: UserService,private router:Router,private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.spinner.show();
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-  }, 5000);
+    
+    
   }
   loginUser(){
+    this.spinner.show();
     this.userService.loginUser(this.loginUserData)
     .subscribe(res => {
-      
+        this.spinner.hide();
       debugger;
       localStorage.setItem('email', res.user.email);
       localStorage.setItem('firstname', res.user.firstname);
