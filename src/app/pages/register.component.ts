@@ -45,9 +45,9 @@ export class RegisterComponent implements OnInit {
         this.toastr.success('Registered Successfully!');
         return false;
       }
-      else{
+
         this.toastr.error("Email already exists");
-      }
+
     }, err => {
       debugger;
       console.log(err);
