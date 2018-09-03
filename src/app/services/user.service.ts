@@ -15,7 +15,7 @@ export class UserService {
 
   //private _url='http://localhost:3000/users/register';
   //private _loginurl='http://localhost:3000/users/login';
-    private _url='https://carbazarapinode.herokuapp.com/'
+    private _url=' https://carbazarnode.herokuapp.com/'
 
   //private serviceUrl = "http://localhost:3000/users/getUsers"
   constructor(private _http: HttpClient) { }
