@@ -48,8 +48,7 @@ export class RegisterComponent implements OnInit {
     
       }
 else{
-        this.toastr.error(res.message);
-  console.log(res.message);
+     this.toastr.error(res.message.errmsg);
 }
 
     }, err => {
