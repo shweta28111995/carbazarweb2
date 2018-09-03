@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 
 var headers = new HttpHeaders().set('Content-Type', 'multipart/form-data')
-.set('Access-Control-Allow-Origin', 'https://carbazarapinode.herokuapp.com')
+.set('Access-Control-Allow-Origin', 'https://carbazarweb2.herokuapp.com')
 .set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
 const httpOptions = {
 headers: headers
