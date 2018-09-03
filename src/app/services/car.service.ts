@@ -21,7 +21,7 @@ export class CarService {
   
   //private _url='http://localhost:3000/addcar'
   
-  private _url='https://carbazarapinode.herokuapp.com/'
+  private _url=' https://carbazarnode.herokuapp.com/'
 
   constructor(private _http: HttpClient) { }
 
