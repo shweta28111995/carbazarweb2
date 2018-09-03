@@ -27,11 +27,11 @@ export class AddcarComponent implements OnInit {
     
     this.resetForm();
 
-    // this.spinner.show();
+    // 
 
     // setTimeout(() => {
     //     /** spinner ends after 5 seconds */
-    //     this.spinner.hide();
+    //    
     // }, 5000);
   }
   
@@ -71,11 +71,13 @@ export class AddcarComponent implements OnInit {
   }
   
 saveCar() {
+  this.spinner.show();
   //this.id = this.route.snapshot.paramMap.get('id');
   debugger;
 
   this.carService.registerCar(this.fileToUpload,this.car)
   .subscribe((res: any) => {
+     this.spinner.hide();
     console.log(res);
   
 
