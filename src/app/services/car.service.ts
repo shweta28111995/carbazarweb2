@@ -5,7 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
-var headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8')
+var headers = new HttpHeaders()
 .set('Access-Control-Allow-Origin', '*')
 .set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
 const httpOptions = {
