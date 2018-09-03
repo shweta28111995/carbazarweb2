@@ -52,8 +52,6 @@ else{
 
     },  err => {
       debugger;
-      this.toastr.error('everything is broken', 'Major Error', {
-        timeOut: 3000
-      });
+      this.toastr.error('everything is broken');
 }
 }
