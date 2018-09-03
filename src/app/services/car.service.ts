@@ -42,7 +42,7 @@ export class CarService {
 }
 
 private extractData(res: Response) {
- let body = res.json();
+ const body = res;
   return body || { };
 }
 
