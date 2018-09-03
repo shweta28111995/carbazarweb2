@@ -44,7 +44,6 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['signupsuccess']);
         this.toastr.success('Registered Successfully!');
         return false;
-    console.log("shweta");
     console.log(res.message);
       }
 else{
