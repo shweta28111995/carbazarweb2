@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
    
-
+}
 
   resetForm(form?: NgForm) {
     if (form != null)
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       LastName: '',
       confirmPassword:''
     }
-  }
+  
 
   OnSubmit(): void {
     this.spinner.show();
