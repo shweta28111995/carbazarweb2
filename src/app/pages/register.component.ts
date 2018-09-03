@@ -43,17 +43,17 @@ export class RegisterComponent implements OnInit {
        if (res.status === 'Success') {
         this.router.navigate(['signupsuccess']);
         this.toastr.success('Registered Successfully!');
-    console.log(res.status);
         return false;
     
       }
 else{
-     this.toastr.error(res.message.errmsg);
+     this.toastr.error(res.message);
 }
 
-    }, err => {
+    },  err => {
       debugger;
-      console.log(err);
-    });
+      this.toastr.error('everything is broken', 'Major Error', {
+        timeOut: 3000
+      });
 }
 }
