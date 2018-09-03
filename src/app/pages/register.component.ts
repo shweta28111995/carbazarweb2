@@ -44,9 +44,13 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['signupsuccess']);
         this.toastr.success('Registered Successfully!');
         return false;
+    console.log("shweta");
+    console.log(res.message);
       }
-
-        this.toastr.error("Email already exists");
+else{
+        this.toastr.error(res.message);
+  console.log(res.message);
+}
 
     }, err => {
       debugger;
