@@ -5,7 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
-var headers = new HttpHeaders().set('Content -Type': 'multipart/form-data')
+var headers = new HttpHeaders().set(.set('Content-Type', 'multipart/form-data'))
 .set('Access-Control-Allow-Origin', '*')
 .set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, DELETE');
 const httpOptions = {
