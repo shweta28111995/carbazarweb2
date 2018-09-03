@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
       LastName: '',
       confirmPassword:''
     }
+  }
   
 
   OnSubmit(): void {
